@@ -1,0 +1,43 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId config.packageName
+        minSdkVersion config.minSdkVersion
+        targetSdkVersion config.compileSdkVersion
+        versionCode 1
+        versionName "1.0"
+        archivesBaseName = "Skeleton (v${versionCode}) ${new Date().format('dd-MM-yyyy')}"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    signingConfigs {
+        release {
+            storeFile file(String.valueOf(System.getenv("APPOSTROPHE_TECH_UPLOAD_KEY_PATH")))
+            storePassword System.getenv("APPOSTROPHE_TECH_UPLOAD_KEY_PASSWORD")
+            keyAlias "Skeleton"
+            keyPassword System.getenv("APPOSTROPHE_TECH_UPLOAD_KEY_PASSWORD")
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(path: ':skeleton')
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "androidx.appcompat:appcompat:$libVersions.appcompat"
+    implementation "androidx.core:core-ktx:$libVersions.core_ktx"
+    testImplementation "junit:junit:$libVersions.jUnit"
+    androidTestImplementation "androidx.test:runner:$libVersions.testRunner"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$libVersions.espresso"
+}
