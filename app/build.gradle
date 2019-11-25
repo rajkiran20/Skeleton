@@ -5,9 +5,9 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion config.compileSdkVersion
     defaultConfig {
-        applicationId config.packageName
+        applicationId "com.rajbande.skeleton"
         minSdkVersion config.minSdkVersion
         targetSdkVersion config.compileSdkVersion
         versionCode 1

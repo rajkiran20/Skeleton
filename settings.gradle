@@ -1,1 +1,2 @@
 include ':app', ':skeleton'
+rootProject.name='Android-Skeleton-Library'
