@@ -3,7 +3,7 @@
 ext {
     config = [
             packageName      : "com.rajkiran.skeleton",
-            compileSdkVersion: 29,
+            compileSdkVersion: 28,
             minSdkVersion    : 22
     ]
     libVersions = [
