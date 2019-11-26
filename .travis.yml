@@ -14,6 +14,8 @@ env:
     - EMULATOR_API=21
     - ANDROID_BUILD_TOOLS=28.0.3
     - ADB_INSTALL_TIMEOUT=5
+    - ANDROID_TARGET=android-28
+    - ANDROID_ABI=armeabi-v7a
     - secure: bQY36WA2+s/pQB6OGNZdC/CHeeKrD3fBkKKvMCCqUD+TPnZJ2WbMC7f1cIO98nG2HyVCsyPLf7hnOLvCK496Uo9IKX3k9yybMFckk3F85LUVJ3VxExV7YG3WaWbv2+sinXeevxufAFy/psjiCh/nfgOFtF0ocTadtcbnQ+v1n1WAiYabVEMgNm+22APYYsuOgFrIiJndU1655KXLDgbL1ExAHABox2gK8I6c8TwdV9h4dQcR8UXECx8qmIKJHjEsYXv5EJw4N3DgAalvG36vSRlAx/4x4Q6SusBS3+FluPmxu6Q6QPP+UKE+hsuUe/e3UWc4FlQbTABXWYi7rJV3GFlVrmv/DtRxV48DlKSOgnshk5Czw3tCm/lDxO2qQcZkF+ZBOgAK5MuGSMkh9x0CFBMTY9wJnlSW/hCshX+7WDYbH/LUrf7K5vIDqjciGEP1qjVfcmZWsqmHoszwSG7s/3kOHrp6Yb2/9z7SHPqw/NIWHqElwUi6ICw8vfORy9hkJ7bU182GQAfpG1psuvtyM72eyAM+VQy/+KzYs/m3rX8fRncIo/6MobKi9ITSKtm4sGcVzSgdEEP4h/vFtNpgQoQjNiZ2WQqbLBya9ud7dhoeYk/Xipg0Iag/84mdQ79xPe3AWn/dZQQbWel3sjXQ4/b7B7XzMAVQ/PufjLnAD8w=
     - secure: KCQ7p1zgXL+OwrLjmfAKP8y+MnKTtDmCedA7Z3rD+Y15lsFtSrS7r7iJC+GP4A+iGraRQ6VdoNBCEEkY+QyME/zyeYJxLBK4M8U+SaUHJ8f1c6fqPAlOqFb7gyeFFNDBaeONHRleaWKjsUU1w0RDaQCjwZfUn2DDp86A0sEf/nKAT3POUDz1bO07oWI6sVxA+noyOJ7H3amlPJzspON7L9B6N/6Q6lwhW2mBfbG/CeAlnoxNMgP27geC1Oro6+hskEprtOY3bRM62wn1YZSkRCGN9WR9gQjgEBRqceYSeY5AdHf+lEQivUJ3gmKwftLV+Qwt5DS4k4u2VhMXEdiP3MLmYNLFVSesk7ukZqOPg4jp+wMsDLKXP9lbPF2FupSHutfcac2fq5WlOHqerGZFfEIlQoFtNBjjeGslwhHXSxdo8sEibRR1ex0Hmtc28SXQlS8TYEpzftJj0FztOtPIAhcTpCibsx2bAyv/PPKaDv3y8C1idg/3gKH7bBXJEnsiMfpeMyolSVlb/IysbXyREhNlr96KhngnqcGSqY36gl0p8DvkdE3AzdqvZkW93xrd2tPtieKLHCxzcv7w68NpG3g7U6r0MCYcuc6GGHqnTGe3xFD7RgRz3ufdUGLuk0paWl2yB9GpksE+1lSF0jDFXWG5UU1os73Nii+EYgzGQlY=
 android:
@@ -40,7 +42,7 @@ before_install:
   - echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license"
   - chmod +x gradlew
 script:
-  - ./gradlew clean build assembleDebug assembleRelease jacocoTestReport assembleAndroidTest -PdisablePreDex --stacktrace
+  - ./gradlew assembleDebug assembleRelease jacocoTestReport assembleAndroidTest -PdisablePreDex --stacktrace
   - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
   - emulator -avd test -no-skin -no-audio -no-window &
   - android-wait-for-emulator
