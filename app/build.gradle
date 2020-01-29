@@ -1,43 +1,53 @@
+import dependancies.*
+
 apply plugin: 'com.android.application'
-
-apply plugin: 'kotlin-android'
-
-apply plugin: 'kotlin-android-extensions'
+apply from: rootProject.file("android-commons.gradle")
+apply from: rootProject.file("jacoco.gradle")
 
 android {
-    compileSdkVersion config.compileSdkVersion
-    defaultConfig {
-        applicationId "com.rajbande.skeleton"
-        minSdkVersion config.minSdkVersion
-        targetSdkVersion config.compileSdkVersion
-        versionCode 1
-        versionName "1.0"
-        archivesBaseName = "Skeleton (v${versionCode}) ${new Date().format('dd-MM-yyyy')}"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
-    signingConfigs {
+    buildTypes {
+        debug {
+            resValue 'string', 'app_name', 'Skeleton Debug'
+            applicationIdSuffix '.debug'
+        }
+        qa {
+            shrinkResources true
+            minifyEnabled true
+            applicationIdSuffix '.qa'
+            resValue 'string', 'app_name', 'Skeleton QA'
+        }
         release {
-            storeFile file(String.valueOf(System.getenv("APPOSTROPHE_TECH_UPLOAD_KEY_PATH")))
-            storePassword System.getenv("APPOSTROPHE_TECH_UPLOAD_KEY_PASSWORD")
-            keyAlias "Skeleton"
-            keyPassword System.getenv("APPOSTROPHE_TECH_UPLOAD_KEY_PASSWORD")
+            shrinkResources true
+            minifyEnabled true
+            resValue 'string', 'app_name', 'Skeleton'
         }
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+}
+
+task decodeKeystorePrebuildTask(type: Exec) {
+    doFirst {
+        workingDir "$projectDir"
+        //Generate BASE64 encoded keystore with command "openssl base64 -A -in keystore.jks"
+        //and save it to environment variable called "UPLOAD_KEYSTORE_ENCODED"
+        String encodedKeystore = System.getenv("UPLOAD_KEYSTORE_ENCODED")
+        String command = "echo $encodedKeystore | base64 --decode > keystore.jks"
+        println(command)
+        if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+            commandLine 'cmd', '/c', "$command"
+        } else {
+            commandLine 'sh', '-c', "$command"
         }
     }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(path: ':skeleton')
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation "androidx.appcompat:appcompat:$libVersions.appcompat"
-    implementation "androidx.core:core-ktx:$libVersions.core_ktx"
-    testImplementation "junit:junit:$libVersions.jUnit"
-    androidTestImplementation "androidx.test:runner:$libVersions.testRunner"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$libVersions.espresso"
+    api project(Modules.search)
+    api project(Modules.location)
+    api project(Modules.utils)
+    api project(Modules.presentation)
+    api project(Modules.account)
+
+    androidTestImplementation Deps.Testing.Helpers.kappuccino
+
+    kaptAndroidTest Deps.AndroidX.dataBindingCompiler
 }

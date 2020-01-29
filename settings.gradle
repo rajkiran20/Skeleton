@@ -1,2 +1,2 @@
-include ':app', ':skeleton'
-rootProject.name='Android-Skeleton-Library'
+include ':app', ':commons:network', ':commons:utils', ':commons:presentation', ':addons:logger', ':features:search', ':features:core', ':features:location', ':user:account'
+rootProject.name='Skeleton'

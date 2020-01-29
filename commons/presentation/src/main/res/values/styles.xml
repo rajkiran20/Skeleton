@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textAppearance">@style/TextAppearance</item>
+        <item name="toolbarStyle">@style/Toolbar</item>
+<!--        <item name="buttonStyle">@style/Button</item>-->
+        <item name="android:tabWidgetStyle">@style/AppTabLayout</item>
+        <item name="android:textViewStyle">@style/TextAppearance</item>
+    </style>
+
+    <style name="AppTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">@color/colorPrimary</item>
+        <item name="tabIndicatorHeight">@dimen/tab_indictor_height</item>
+        <item name="tabBackground">@color/white</item>
+        <item name="tabTextAppearance">@style/AppTabTextAppearance</item>
+        <item name="tabSelectedTextColor">@color/colorPrimary</item>
+    </style>
+
+    <!-- for text -->
+    <style name="AppTabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Toolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+
+    </style>
+
+    <style name="Button.Secondary" parent="Widget.MaterialComponents.Button">
+        <item name="android:height">@dimen/secondary_button_height</item>
+        <item name="android:textAppearance">@style/TextAppearance.Button</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:background">@drawable/secondary_button_background</item>
+        <item name="android:textColor">@color/secondary_button_text_color</item>
+    </style>
+
+    <style name="Button.Negative" parent="Widget.MaterialComponents.Button">
+        <item name="android:drawablePadding">@dimen/content_padding_medium</item>
+        <item name="android:height">@dimen/secondary_button_height</item>
+        <item name="android:textAppearance">@style/TextAppearance.Button</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:background">@drawable/secondary_button_background_red</item>
+        <item name="android:textColor">@color/deny_button_text_color</item>
+    </style>
+
+
+    <style name="Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:height">@dimen/button_height</item>
+        <item name="android:textAppearance">@style/TextAppearance.Button</item>
+        <item name="android:elevation">4dp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:drawablePadding">@dimen/content_margin_small</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:background">@drawable/button_background</item>
+        <item name="android:textColor">@color/button_text_color</item>
+    </style>
+
+    <style name="Progressbar" parent="TextAppearance.MaterialComponents.Button">
+        <item name="android:colorAccent">@color/button_background_color</item>
+    </style>
+
+    <style name="TextAppearance">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+
+    <style name="TextAppearance.AllCaps" parent="TextAppearance">
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="TextAppearance.AllCaps.Active" parent="TextAppearance.AllCaps">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
+
+    <style name="TextAppearance.AllCaps.Inactive" parent="TextAppearance.AllCaps">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_size_extra_small</item>
+    </style>
+
+    <style name="TextAppearance.Button" parent="TextAppearance.AppCompat.Button"/>
+
+    <style name="TextAppearance.Heavy" parent="TextAppearance">
+        <item name="android:letterSpacing">0.03</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="TextAppearance.ListItemHeader" parent="TextAppearance.Heavy">
+        <item name="android:textSize">@dimen/text_size_large</item>
+    </style>
+
+    <style name="TextAppearance.ListItemSubHeader" parent="TextAppearance">
+        <item name="android:letterSpacing">0.05</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
+
+    </style>
+
+    <style name="ConsentRequestHiuDetails">
+        <item name="android:letterSpacing">0.05</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="ConsentRequestItem">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="ConsentRequestItemHeader" parent="ConsentRequestItem">
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="ConsentRequestItemValue" parent="ConsentRequestItem">
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="Widget.BottomNavigationView" parent="Widget.Design.BottomNavigationView">
+        <item name="fontFamily">sans-serif</item>
+        <item name="android:textSize">@dimen/text_size_extra_small</item>
+        <item name="itemBackground">@drawable/bottom_nav_tab_bg_color</item>
+        <item name="tabIndicatorHeight">@dimen/tab_indictor_height</item>
+        <item name="android:textStyle">bold</item>
+        <item name="textAllCaps">true</item>
+        <item name="itemTextAppearanceActive">@style/TextAppearance.AllCaps.Active</item>
+        <item name="itemTextAppearanceInactive">@style/TextAppearance.AllCaps.Inactive</item>
+    </style>
+
+</resources>
