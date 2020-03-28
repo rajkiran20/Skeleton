@@ -1,22 +1,14 @@
 package com.skeleton.util.extension
 
-import com.skeleton.util.R
-import com.skeleton.util.ui.activity.TestsOnlyActivity
-import com.skeleton.util.ui.fragment.TestsOnlyFragment
 import android.view.View
 import androidx.annotation.IntegerRes
-import androidx.appcompat.app.AppCompatActivity
-import androidx.test.filters.LargeTest
-import androidx.test.runner.AndroidJUnit4
+import com.skeleton.util.R
+import com.skeleton.util.ui.activity.TestsOnlyActivity
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.ArgumentMatchers
 import org.mockito.ArgumentMatchers.anyInt
-import org.mockito.Mock
-import org.mockito.Mockito
 import org.mockito.Mockito.*
-import org.mockito.MockitoAnnotations
 import org.mockito.junit.MockitoJUnitRunner
 
 @RunWith(MockitoJUnitRunner::class)
@@ -26,7 +18,7 @@ class ExtensionsTest {
 
     @Before
     fun setUp() {
-        testActivity = Mockito.mock(TestsOnlyActivity::class.java)
+        testActivity = mock(TestsOnlyActivity::class.java)
     }
 
     @Test

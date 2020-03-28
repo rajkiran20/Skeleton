@@ -1,12 +1,12 @@
 package com.skeleton.ui
 
-import com.skeleton.R
-import com.skeleton.databinding.ActivityLauncherBinding
-import com.skeleton.presentation.ui.BaseActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import com.skeleton.R
+import com.skeleton.databinding.ActivityLauncherBinding
+import com.skeleton.presentation.ui.BaseActivity
 
 
 class LauncherActivity : BaseActivity() {

@@ -1,5 +1,13 @@
 package com.skeleton.presentation.ui
 
+import android.content.DialogInterface
+import android.os.Bundle
+import android.view.KeyEvent
+import android.view.MenuItem
+import android.widget.RadioButton
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.skeleton.presentation.BuildConfig
 import com.skeleton.presentation.R
 import com.skeleton.presentation.databinding.NetworkPrefDialogBinding
@@ -11,14 +19,6 @@ import com.skeleton.util.sharedPref.NetworkSharedPrefsManager.Companion.getBaseU
 import com.skeleton.util.sharedPref.NetworkSharedPrefsManager.Companion.getEndpointIndex
 import com.skeleton.util.sharedPref.NetworkSharedPrefsManager.Companion.setAuthToken
 import com.skeleton.util.sharedPref.NetworkSharedPrefsManager.Companion.setNetworkPref
-import android.content.DialogInterface
-import android.os.Bundle
-import android.view.KeyEvent
-import android.view.MenuItem
-import android.widget.RadioButton
-import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 
 abstract class BaseActivity : AppCompatActivity() {
     private lateinit var networkPrefDialogBinding: NetworkPrefDialogBinding

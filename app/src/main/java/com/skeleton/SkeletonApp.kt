@@ -1,9 +1,9 @@
 package com.skeleton
 
+import android.app.Application
 import com.skeleton.module.networkModule
 import com.skeleton.module.repositoryModule
 import com.skeleton.module.viewModelModule
-import android.app.Application
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.loadKoinModules

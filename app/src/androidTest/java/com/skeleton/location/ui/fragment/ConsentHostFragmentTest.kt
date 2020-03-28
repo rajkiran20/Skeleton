@@ -1,13 +1,12 @@
 package com.skeleton.location.ui.fragment
 
-import com.skeleton.R
-
-import com.skeleton.R.id.tv_requested_date
-import com.skeleton.ui.activity.TestsOnlyActivity
 import androidx.test.espresso.intent.rule.IntentsTestRule
 import androidx.test.filters.LargeTest
 import androidx.test.runner.AndroidJUnit4
 import br.com.concretesolutions.kappuccino.assertions.VisibilityAssertions.displayed
+import com.skeleton.R
+import com.skeleton.R.id.tv_requested_date
+import com.skeleton.ui.activity.TestsOnlyActivity
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test

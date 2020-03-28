@@ -1,12 +1,12 @@
 package com.skeleton.presentation.adapter
 
-import com.skeleton.presentation.callback.IDataBindingModel
-import com.skeleton.presentation.callback.ItemClickCallback
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil.inflate
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
+import com.skeleton.presentation.callback.IDataBindingModel
+import com.skeleton.presentation.callback.ItemClickCallback
 import java.util.*
 
 open class GenericRecyclerViewAdapter : RecyclerView.Adapter<GenericRecyclerViewAdapter.RecyclerViewHolder> {

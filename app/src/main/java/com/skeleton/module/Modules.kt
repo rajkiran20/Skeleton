@@ -1,6 +1,6 @@
 package com.skeleton.module
 
-import `in`.org.projecteka.featuresprovider.BuildConfig
+import com.skeleton.BuildConfig
 import com.skeleton.network.createNetworkClient
 import com.skeleton.search.remote.LandingApis
 import com.skeleton.search.repository.LandingRepository

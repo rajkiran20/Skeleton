@@ -1,11 +1,11 @@
 package com.skeleton.network
 
-import com.skeleton.util.constant.NetworkConstants.Companion.MOCK_WEB_SERVER_TEST_URL
 import android.app.Application
 import android.content.Context
 import com.skeleton.network.interceptor.HostSelectionInterceptor
 import com.skeleton.network.interceptor.RequestInterceptor
 import com.skeleton.util.constant.NetworkConstants.Companion.CONNECT_TIMEOUT
+import com.skeleton.util.constant.NetworkConstants.Companion.MOCK_WEB_SERVER_TEST_URL
 import com.skeleton.util.constant.NetworkConstants.Companion.READ_TIMEOUT
 import com.skeleton.util.constant.NetworkConstants.Companion.WRITE_TIMEOUT
 import com.skeleton.util.sharedPref.getAuthToken
@@ -61,4 +61,4 @@ private fun retrofitClient(baseUrl: String, httpClient: OkHttpClient): Retrofit 
         .build()
 }
 
-private fun isTestingMode(context: Application) = context.javaClass.simpleName != "JataayuApp"
+private fun isTestingMode(context: Application) = context.javaClass.simpleName != "SkeletonApp"

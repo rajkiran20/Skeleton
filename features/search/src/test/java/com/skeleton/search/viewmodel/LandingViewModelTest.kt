@@ -1,10 +1,10 @@
 package com.skeleton.search.viewmodel
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import com.google.gson.Gson
 import com.skeleton.core.model.Brand
 import com.skeleton.search.repository.LandingRepository
 import com.skeleton.util.TestUtils
 import com.skeleton.util.extension.fromJson
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.google.gson.Gson
 import junit.framework.Assert.assertEquals
 import org.junit.After
 import org.junit.Before

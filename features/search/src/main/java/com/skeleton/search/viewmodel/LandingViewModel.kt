@@ -1,9 +1,9 @@
 package com.skeleton.search.viewmodel
 
+import androidx.lifecycle.ViewModel
 import com.skeleton.core.model.Brand
 import com.skeleton.search.repository.LandingRepository
 import com.skeleton.util.extension.liveDataOf
-import androidx.lifecycle.ViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

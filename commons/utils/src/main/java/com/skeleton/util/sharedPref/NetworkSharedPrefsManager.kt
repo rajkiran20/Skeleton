@@ -1,8 +1,8 @@
 package com.skeleton.util.sharedPref
 
-import com.skeleton.util.constant.NetworkConstants.Companion.PROD_URL
 import android.content.Context
 import androidx.core.content.edit
+import com.skeleton.util.constant.NetworkConstants.Companion.PROD_URL
 
 private const val NETWORK_PREF = "NETWORK_PREF_FILE"
 private const val ENVIRONMENT = "ENVIRONMENT"

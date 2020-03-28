@@ -1,11 +1,11 @@
 package com.skeleton.util.ui.activity
 
-import com.skeleton.util.R
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.annotation.RestrictTo
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.skeleton.util.R
 
 @RestrictTo(RestrictTo.Scope.TESTS)
 open class TestsOnlyActivity : AppCompatActivity() {

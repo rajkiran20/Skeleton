@@ -1,29 +1,29 @@
 package com.skeleton.location.ui.fragment
 
-import com.skeleton.R
-import com.skeleton.R.id.tv_requested_date
-import com.skeleton.location.R.id.*
-import com.skeleton.testUtil.MockServerDispatcher
-import com.skeleton.ui.activity.TestsOnlyActivity
 import androidx.test.espresso.Espresso.onData
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.intent.rule.IntentsTestRule
-import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.withSpinnerText
 import androidx.test.filters.LargeTest
 import androidx.test.runner.AndroidJUnit4
+import br.com.concretesolutions.kappuccino.actions.ClickActions.click
 import br.com.concretesolutions.kappuccino.assertions.VisibilityAssertions.displayed
 import br.com.concretesolutions.kappuccino.custom.recyclerView.RecyclerViewInteractions.recyclerView
+import com.skeleton.R
+import com.skeleton.R.id.tv_requested_date
+import com.skeleton.testUtil.MockServerDispatcher
+import com.skeleton.ui.activity.TestsOnlyActivity
 import okhttp3.mockwebserver.MockWebServer
+import org.hamcrest.CoreMatchers.*
 import org.hamcrest.Matchers.allOf
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import br.com.concretesolutions.kappuccino.actions.ClickActions.click
-import org.hamcrest.CoreMatchers.*
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
