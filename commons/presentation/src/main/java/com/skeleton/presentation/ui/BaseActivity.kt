@@ -15,10 +15,7 @@ import com.skeleton.presentation.ui.fragment.BaseFragment
 import com.skeleton.util.constant.NetworkConstants.Companion.MOCKOON_URL
 import com.skeleton.util.constant.NetworkConstants.Companion.PROD_URL
 import com.skeleton.util.constant.NetworkConstants.Companion.TEST_URL
-import com.skeleton.util.sharedPref.NetworkSharedPrefsManager.Companion.getBaseUrl
-import com.skeleton.util.sharedPref.NetworkSharedPrefsManager.Companion.getEndpointIndex
-import com.skeleton.util.sharedPref.NetworkSharedPrefsManager.Companion.setAuthToken
-import com.skeleton.util.sharedPref.NetworkSharedPrefsManager.Companion.setNetworkPref
+import com.skeleton.util.sharedPref.*
 
 abstract class BaseActivity : AppCompatActivity() {
     private lateinit var networkPrefDialogBinding: NetworkPrefDialogBinding
@@ -26,10 +23,10 @@ abstract class BaseActivity : AppCompatActivity() {
     private val okListener = DialogInterface.OnClickListener { _, _ ->
         networkPrefDialogBinding.apply {
             etEndpoint.text?.toString()?.let {
-                setNetworkPref(this@BaseActivity, selectedEnvironmentIndex!!, it)
+                setNetworkPref(selectedEnvironmentIndex!!, it)
             }
             etAuthToken.text?.toString()?.let {
-                setAuthToken(context = this@BaseActivity, authToken = etAuthToken.text.toString())
+                setAuthToken(authToken = etAuthToken.text.toString())
             }
         }
     }
@@ -63,9 +60,9 @@ abstract class BaseActivity : AppCompatActivity() {
         networkPrefDialogBinding = NetworkPrefDialogBinding.inflate(layoutInflater)
 
         networkPrefDialogBinding.apply {
-            endpoint = getBaseUrl(this@BaseActivity)
-            rgEnvironmentOptions.check(rgEnvironmentOptions.getChildAt(getEndpointIndex(this@BaseActivity)).id)
-            selectedEnvironmentIndex = getEndpointIndex(this@BaseActivity)
+            endpoint = getBaseUrl()
+            rgEnvironmentOptions.check(rgEnvironmentOptions.getChildAt(getEndpointIndex()).id)
+            selectedEnvironmentIndex = getEndpointIndex()
 
             rgEnvironmentOptions.setOnCheckedChangeListener { _, _ ->
                 selectedEnvironmentIndex = rgEnvironmentOptions.indexOfChild(

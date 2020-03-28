@@ -15,9 +15,9 @@ import com.skeleton.presentation.callback.ItemClickCallback
 import com.skeleton.presentation.callback.LandingFragmentClickHandler
 import com.skeleton.presentation.callback.ProgressDialogCallback
 import com.skeleton.presentation.ui.fragment.BaseFragment
-import com.skeleton.search.viewmodel.LandingViewModel
 import com.skeleton.util.extension.setTitle
 import com.skeleton.util.extension.showShortToast
+import com.skeleton.viewmodel.LandingViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import retrofit2.Response
 
@@ -40,7 +40,7 @@ class LandingFragment : BaseFragment(), ItemClickCallback, ProgressDialogCallbac
     }
 
     override fun onVisible() {
-            setTitle(R.string.app_name)
+        setTitle(R.string.app_name)
     }
 
     private fun showSearchLoading() {
