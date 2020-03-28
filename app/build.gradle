@@ -42,11 +42,9 @@ task decodeKeystorePrebuildTask(type: Exec) {
 }
 
 dependencies {
-    api project(Modules.search)
-    api project(Modules.location)
     api project(Modules.utils)
     api project(Modules.presentation)
-    api project(Modules.account)
+
 
     androidTestImplementation Deps.Testing.Helpers.kappuccino
 

@@ -47,10 +47,7 @@ object Modules {
     const val presentation = ":commons:presentation"
     const val logger = ":addons:logger"
     const val analytics = ":addons:analytics"
-    const val search = ":features:search"
-    const val location = ":features:location"
     const val core = ":features:core"
-    const val account = ":user:account"
 }
 
 object Deps {

@@ -1,2 +1,7 @@
-include ':app', ':commons:network', ':commons:utils', ':commons:presentation', ':addons:logger', ':features:search', ':features:core', ':features:location', ':user:account'
+include ':app'
+include':commons:network'
+include':commons:utils'
+include':commons:presentation'
+include':addons:logger'
+include':features:core'
 rootProject.name='Skeleton'
