@@ -7,7 +7,6 @@ dependencies {
     api Deps.AndroidX.lifecyleViewModel
     api Deps.AndroidX.appcompat
     api Deps.Testing.Helpers.gson
-
     api Deps.Testing.mockito
 
     testImplementation Deps.Testing.Helpers.apacheCommonsIo

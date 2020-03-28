@@ -28,21 +28,6 @@ class ExtensionsTest {
     fun setUp() {
         testActivity = Mockito.mock(TestsOnlyActivity::class.java)
     }
-    @Test
-    fun shouldStartActivityWithJustClassName() {
-        val clazz = AppCompatActivity::class.java
-        testActivity.startActivity(clazz)
-        verify(testActivity).startActivity(clazz)
-    }
-
-    @Test
-    fun shouldStartActivityWithJustClassNameFromAFragment() {
-        val dummyFragment = mock(TestsOnlyFragment::class.java)
-        `when`(dummyFragment.context).thenReturn(testActivity)
-        val clazz = AppCompatActivity::class.java
-        dummyFragment.startActivity(clazz)
-        verify(testActivity).startActivity(clazz)
-    }*/
 
     @Test
     fun shouldFindViewByIdForGivenContext() {

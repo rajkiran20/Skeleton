@@ -11,6 +11,8 @@ dependencies {
     api Deps.Koin.main
     api Deps.Koin.androidXScope
     api Deps.Koin.androidXViewModel
+    api Deps.Rx.Kotlin
+    api Deps.Rx.Android
     api Deps.Koin.test
     api Deps.AndroidX.coreKtx
     api Deps.AndroidX.coreTesting

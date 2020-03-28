@@ -9,6 +9,12 @@ import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.schedulers.Schedulers
+import org.koin.core.context.loadKoinModules
+import org.koin.core.context.unloadKoinModules
+import org.koin.core.module.Module
 
 fun <T> Context.startActivity(clazz: Class<T>) {
     startActivity(Intent(this, clazz))
@@ -22,7 +28,6 @@ fun Fragment.setTitle(@StringRes resourceId: Int) {
     activity?.setTitle(resourceId)
 }
 
-
 inline fun <reified T : View> Activity.findView(id: Int): T = findViewById(id)
 
 inline fun <reified T : View> View.findView(id: Int): T = findViewById(id)
@@ -30,15 +35,6 @@ inline fun <reified T : View> View.findView(id: Int): T = findViewById(id)
 fun View.getString(id: Int): String = context.getString(id)
 
 val String.Companion.EMPTY: String get() = ""
-
-public fun String.mask(): String? {
-    if (this.length > 4) {
-        return this.substring(0, 2) + this.substring(2, length - 2).replace(
-            Regex("[0-9]"),
-            "X"
-        ) + this.substring(length - 2)
-    } else return this
-}
 
 fun Context.showLongToast(text: CharSequence) = Toast.makeText(this, text, Toast.LENGTH_LONG).show()
 fun Fragment.showLongToast(text: CharSequence) = context?.showLongToast(text)
@@ -48,3 +44,13 @@ fun Context.showShortToast(text: CharSequence) =
 fun Fragment.showShortToast(text: CharSequence) = context?.showShortToast(text)
 
 public inline fun <reified T> Gson.fromJson(json: String) = this.fromJson<T>(json, object: TypeToken<T>() {}.type)
+
+fun <T> Observable<T>.getIo(): Observable<T> {
+    return this.subscribeOn(Schedulers.io())
+        .observeOn(AndroidSchedulers.mainThread())
+}
+
+fun reloadModules(vararg modules: Module) {
+    unloadKoinModules(modules.toList())
+    loadKoinModules(modules.toList())
+}
